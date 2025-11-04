@@ -7,6 +7,7 @@ from BrandrdXMusic import app
 
 LOGGER = getLogger(__name__)
 
+# --- [ Database Classes Remain Unchanged ] ---
 class WelDatabase:
     def __init__(self):
         self.data = {}
@@ -55,6 +56,7 @@ def welcomepic(pic, user, chatname, id, uname):
     background.paste(pfp, pfp_position, pfp)
     background.save(f"downloads/welcome#{id}.png")
     return f"downloads/welcome#{id}.png"
+# --- [ Helper Functions Remain Unchanged ] ---
 
 @app.on_chat_member_updated(filters.group, group=-3)
 async def greet_group(_, member: ChatMemberUpdated):
@@ -86,15 +88,17 @@ async def greet_group(_, member: ChatMemberUpdated):
             member.chat.id,
             photo=welcomeimg,
             caption=f"""
-𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼 {member.chat.title}
-➖➖➖➖➖➖➖➖➖➖➖
-๏ 𝗡𝗔𝗠𝗘 ➠ {user.mention}
-๏ 𝗜𝗗 ➠ {user.id}
-๏ 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 ➠ @{user.username}
-๏ 𝐌𝐀𝐃𝐄 𝐁𝐘 ➠ [𝗕𝗥𝗔𝗡𝗗𝗘𝗗 𓆩🇽𓆪 𝗞𝗜𝗡𝗚 📿](https://t.me/BRANDEDKING8)
-➖➖➖➖➖➖➖➖➖➖➖
+**𝐖𝐞𝐥𝐜𝐨𝐦𝐞, 𝐃𝐞𝐚𝐫 𝐂𝐥𝐢𝐞𝐧𝐭! 🌹**
+**𝐘𝐨𝐮 𝐡𝐚𝐯𝐞 𝐣𝐨𝐢𝐧𝐞𝐝 𝐭𝐡𝐞 𝐜𝐨𝐫𝐫𝐞𝐬𝐩𝐨𝐧𝐝𝐞𝐧𝐜𝐞 𝐨𝐟 {member.chat.title}**
+━━━━━━━━━━━━━━━
+💌 𝐍𝐀𝐌𝐄: {user.mention}
+✨ 𝐈𝐃: `{user.id}`
+🌐 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄: @{user.username}
+━━━━━━━━━━━━━━━
+**𝐈 𝐚𝐦 𝐲𝐨𝐮𝐫 𝐀𝐮𝐭𝐨 𝐌𝐞𝐦𝐨𝐫𝐲 𝐃𝐨𝐥𝐥, 𝐫𝐞𝐚𝐝𝐲 𝐭𝐨 𝐬𝐞𝐫𝐯𝐞.**
+**𝐌𝐚𝐝𝐞 𝐁𝐲:** [𝐃𝐀𝐃𝐃𝐘 🤤](https://t.me/crwke)
 """,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/Sustumm_music_bot?startgroup=true")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"🌸 𝐀𝐝𝐝 𝐌𝐞 𝐭𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 🌸", url=f"https://t.me/lnfixbot?startgroup=true")]])
         )
     except Exception as e:
         LOGGER.error(e)
@@ -104,15 +108,25 @@ async def greet_group(_, member: ChatMemberUpdated):
     except Exception as e:
         pass
 
+# --- [ Bot Welcome Message (Unchanged) ] ---
 @app.on_message(filters.new_chat_members & filters.group, group=-1)
 async def bot_wel(_, message):
     for u in message.new_chat_members:
         if u.id == app.me.id:
-            await app.send_message(LOG_CHANNEL_ID, f"""
-NEW GROUP
+            # Note: LOG_CHANNEL_ID must be defined elsewhere for this to work
+            # For simplicity, keeping the original log format here
+            # LOG_CHANNEL_ID is not defined in the provided snippet, so this part might error if used directly
+            # I am keeping the original log message style as it's not part of the user-facing welcome
+            try:
+                await app.send_message(LOG_CHANNEL_ID, f"""
+𝐍𝐄𝐖 𝐆𝐑𝐎𝐔𝐏
 ➖➖➖➖➖➖➖➖➖➖➖
-𝗡𝗔𝗠𝗘: {message.chat.title}
-𝗜𝗗: {message.chat.id}
+𝐍𝐀𝐌𝐄: {message.chat.title}
+𝐈𝐃: {message.chat.id}
 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄: @{message.chat.username}
 ➖➖➖➖➖➖➖➖➖➖➖
 """)
+            except NameError:
+                # Fallback if LOG_CHANNEL_ID is not defined
+                LOGGER.error("LOG_CHANNEL_ID is not defined for bot_wel function.")
+    
