@@ -23,39 +23,39 @@ async def active_afk(_, message: Message):
             seenago = get_readable_time((int(time.time() - timeafk)))
             if afktype == "text":
                 send = await message.reply_text(
-                    f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
+                    f"Oh, look who's back! **{message.from_user.first_name}**, I missed you! You were away for **{seenago}** of my lonely time.",
                     disable_web_page_preview=True,
                 )
             if afktype == "text_reason":
                 send = await message.reply_text(
-                    f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                    f"Welcome back, **{message.from_user.first_name}**! Did you know you were gone for **{seenago}**? \n\nYour reason was: `{reasonafk}` (Hope it was worth leaving me!)",
                     disable_web_page_preview=True,
                 )
             if afktype == "animation":
                 if str(reasonafk) == "None":
                     send = await message.reply_animation(
                         data,
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
+                        caption=f"Oh, look who's back! **{message.from_user.first_name}**, I missed you! You were away for **{seenago}** of my lonely time.",
                     )
                 else:
                     send = await message.reply_animation(
                         data,
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                        caption=f"Welcome back, **{message.from_user.first_name}**! Did you know you were gone for **{seenago}**? \n\nYour reason was: `{reasonafk}` (Hope it was worth leaving me!)",
                     )
             if afktype == "photo":
                 if str(reasonafk) == "None":
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
+                        caption=f"Oh, look who's back! **{message.from_user.first_name}**, I missed you! You were away for **{seenago}** of my lonely time.",
                     )
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                        caption=f"Welcome back, **{message.from_user.first_name}**! Did you know you were gone for **{seenago}**? \n\nYour reason was: `{reasonafk}` (Hope it was worth leaving me!)",
                     )
         except Exception:
             send = await message.reply_text(
-                f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ",
+                f"You're back! **{message.from_user.first_name}**, you light up my screen again!",
                 disable_web_page_preview=True,
             )
 
@@ -154,7 +154,7 @@ async def active_afk(_, message: Message):
         }
 
     await add_afk(user_id, details)
-    await message.reply_text(f"{message.from_user.first_name} ɪs ɴᴏᴡ ᴀғᴋ!")
+    await message.reply_text(f"**{message.from_user.first_name}** is going AFK... Don't take too long, my heart can't wait! ❤️")
 
 
 chat_watcher_group = 1
@@ -190,33 +190,33 @@ async def chat_watcher_func(_, message):
             reasonafk = reasondb["reason"]
             seenago = get_readable_time((int(time.time() - timeafk)))
             if afktype == "text":
-                msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\n"
+                msg += f"Oh, look who's back! **{user_name[:25]}**, I missed you! You were away for **{seenago}** of my lonely time.\n\n"
             if afktype == "text_reason":
-                msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n"
+                msg += f"Welcome back, **{user_name[:25]}**! Did you know you were gone for **{seenago}**? \n\nYour reason was: `{reasonafk}` (Hope it was worth leaving me!)\n\n"
             if afktype == "animation":
                 if str(reasonafk) == "None":
                     send = await message.reply_animation(
                         data,
-                        caption=f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\n",
+                        caption=f"Oh, look who's back! **{user_name[:25]}**, I missed you! You were away for **{seenago}** of my lonely time.\n\n",
                     )
                 else:
                     send = await message.reply_animation(
                         data,
-                        caption=f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
+                        caption=f"Welcome back, **{user_name[:25]}**! Did you know you were gone for **{seenago}**? \n\nYour reason was: `{reasonafk}` (Hope it was worth leaving me!)\n\n",
                     )
             if afktype == "photo":
                 if str(reasonafk) == "None":
                     send = await message.reply_photo(
                         photo=f"downloads/{userid}.jpg",
-                        caption=f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\n",
+                        caption=f"Oh, look who's back! **{user_name[:25]}**, I missed you! You were away for **{seenago}** of my lonely time.\n\n",
                     )
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{userid}.jpg",
-                        caption=f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
+                        caption=f"Welcome back, **{user_name[:25]}**! Did you know you were gone for **{seenago}**? \n\nYour reason was: `{reasonafk}` (Hope it was worth leaving me!)\n\n",
                     )
         except:
-            msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ\n\n"
+            msg += f"You're back! **{user_name[:25]}**, you light up my screen again!\n\n"
 
     if message.reply_to_message:
         try:
@@ -232,34 +232,34 @@ async def chat_watcher_func(_, message):
                     seenago = get_readable_time((int(time.time() - timeafk)))
                     if afktype == "text":
                         msg += (
-                            f"**{replied_first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n"
+                            f"Psst! **{replied_first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n"
                         )
                     if afktype == "text_reason":
-                        msg += f"**{replied_first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n"
+                        msg += f"I'm sorry, **{replied_first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n"
                     if afktype == "animation":
                         if str(reasonafk) == "None":
                             send = await message.reply_animation(
                                 data,
-                                caption=f"**{replied_first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n",
+                                caption=f"Psst! **{replied_first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n",
                             )
                         else:
                             send = await message.reply_animation(
                                 data,
-                                caption=f"**{replied_first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
+                                caption=f"I'm sorry, **{replied_first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n",
                             )
                     if afktype == "photo":
                         if str(reasonafk) == "None":
                             send = await message.reply_photo(
                                 photo=f"downloads/{replied_user_id}.jpg",
-                                caption=f"**{replied_first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n",
+                                caption=f"Psst! **{replied_first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n",
                             )
                         else:
                             send = await message.reply_photo(
                                 photo=f"downloads/{replied_user_id}.jpg",
-                                caption=f"**{replied_first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
+                                caption=f"I'm sorry, **{replied_first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n",
                             )
                 except Exception:
-                    msg += f"**{replied_first_name}** ɪs ᴀғᴋ,\nᴩᴀᴛᴀ ɴɪ ʙᴄ ᴋᴀʙ sᴇ\n\n"
+                    msg += f"Hey, **{replied_first_name}** is currently busy. Maybe they're secretly planning our next date? 😉\n\n"
         except:
             pass
 
@@ -288,34 +288,34 @@ async def chat_watcher_func(_, message):
                         seenago = get_readable_time((int(time.time() - timeafk)))
                         if afktype == "text":
                             msg += (
-                                f"**{user.first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n"
+                                f"Psst! **{user.first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n"
                             )
                         if afktype == "text_reason":
-                            msg += f"**{user.first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n"
+                            msg += f"I'm sorry, **{user.first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n"
                         if afktype == "animation":
                             if str(reasonafk) == "None":
                                 send = await message.reply_animation(
                                     data,
-                                    caption=f"**{user.first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n",
+                                    caption=f"Psst! **{user.first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n",
                                 )
                             else:
                                 send = await message.reply_animation(
                                     data,
-                                    caption=f"**{user.first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
+                                    caption=f"I'm sorry, **{user.first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n",
                                 )
                         if afktype == "photo":
                             if str(reasonafk) == "None":
                                 send = await message.reply_photo(
                                     photo=f"downloads/{user.id}.jpg",
-                                    caption=f"**{user.first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n",
+                                    caption=f"Psst! **{user.first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n",
                                 )
                             else:
                                 send = await message.reply_photo(
                                     photo=f"downloads/{user.id}.jpg",
-                                    caption=f"**{user.first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
+                                    caption=f"I'm sorry, **{user.first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n",
                                 )
                     except:
-                        msg += f"**{user.first_name[:25]}** ɪs ᴀғᴋ\n\n"
+                        msg += f"Hey, **{user.first_name[:25]}** is currently busy. Maybe they're secretly planning our next date? 😉\n\n"
             elif (entity[j].type) == MessageEntityType.TEXT_MENTION:
                 try:
                     user_id = entity[j].user.id
@@ -335,36 +335,37 @@ async def chat_watcher_func(_, message):
                         reasonafk = reasondb["reason"]
                         seenago = get_readable_time((int(time.time() - timeafk)))
                         if afktype == "text":
-                            msg += f"**{first_name[:25]}** is ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n"
+                            msg += f"Psst! **{first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n"
                         if afktype == "text_reason":
-                            msg += f"**{first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n"
+                            msg += f"I'm sorry, **{first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n"
                         if afktype == "animation":
                             if str(reasonafk) == "None":
                                 send = await message.reply_animation(
                                     data,
-                                    caption=f"**{first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n",
+                                    caption=f"Psst! **{first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n",
                                 )
                             else:
                                 send = await message.reply_animation(
                                     data,
-                                    caption=f"**{first_name[:25]}** ɪs AFK sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
+                                    caption=f"I'm sorry, **{first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n",
                                 )
                         if afktype == "photo":
                             if str(reasonafk) == "None":
                                 send = await message.reply_photo(
                                     photo=f"downloads/{user_id}.jpg",
-                                    caption=f"**{first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n",
+                                    caption=f"Psst! **{first_name[:25]}** is taking a little nap and has been AFK for **{seenago}**.\n\n",
                                 )
                             else:
                                 send = await message.reply_photo(
                                     photo=f"downloads/{user_id}.jpg",
-                                    caption=f"**{first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
+                                    caption=f"I'm sorry, **{first_name[:25]}** has been AFK since **{seenago}**.\n\nReason: `{reasonafk}` (Maybe they're dreaming of you!)\n\n",
                                 )
                     except:
-                        msg += f"**{first_name[:25]}** ɪs ᴀғᴋ\n\n"
+                        msg += f"Hey, **{first_name[:25]}** is currently busy. Maybe they're secretly planning our next date? 😉\n\n"
             j += 1
     if msg != "":
         try:
             send = await message.reply_text(msg, disable_web_page_preview=True)
         except:
             return
+    
