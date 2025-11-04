@@ -83,18 +83,19 @@ async def start_pm(client, message: Message, _):
                     chat_id=config.LOGGER_ID,
                     text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
+            return
     else:
 
         try:
             out = private_panel(_)
-            lol = await message.reply_text("𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ︎ {}.. ❣️".format(message.from_user.mention))
-            await lol.edit_text("𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ {}.. 🥳".format(message.from_user.mention))
-            await lol.edit_text("𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ {}.. 💥".format(message.from_user.mention))
-            await lol.edit_text("𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ {}.. 🤩".format(message.from_user.mention))
-            await lol.edit_text("𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ {}.. 💌".format(message.from_user.mention))
-            await lol.edit_text("𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ {}.. 💞".format(message.from_user.mention))
+            
+            # Flirty Messages (Replaced previous edit sequence with this)
+            lol = await message.reply_text(f"Oh, hello there, **{message.from_user.mention}**! Ready for some music? 🎶")
+            await lol.edit_text(f"I'm all yours, **{message.from_user.mention}**! What can I play for you? ❤️")
                
             await lol.delete()
+            
+            # Starting animation sequence remains
             lols = await message.reply_text("**⚡️ѕ**")
             await asyncio.sleep(0.1)
             await lols.edit_text("⚡ѕт")        
@@ -127,7 +128,7 @@ async def start_pm(client, message: Message, _):
                 userss_photo = "assets/nodp.png"
             if userss_photo:
                 chat_photo = userss_photo
-            chat_photo = userss_photo if userss_photo else START_IMG_URL
+            chat_photo = userss_photo if userss_photo else config.START_IMG_URL
 
         except AttributeError:
             chat_photo = "assets/nodp.png"
@@ -200,4 +201,4 @@ async def welcome(client, message: Message):
                 await message.stop_propagation()
         except Exception as ex:
             print(ex)
-
+                
