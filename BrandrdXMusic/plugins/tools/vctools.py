@@ -15,23 +15,29 @@ from telethon.tl.functions.phone import (
     InviteToGroupCallRequest,
 )
 
+# Missing imports for the search function:
+import aiohttp
+import re
 
 # vc on
 @app.on_message(filters.video_chat_started)
 async def brah(_, msg):
-    await msg.reply("**😍ᴠɪᴅᴇᴏ ᴄʜᴀᴛ sᴛᴀʀᴛᴇᴅ🥳**")
+    # Easy Language Style
+    await msg.reply("**💖 So lovely! The call has started! 🎶**")
 
 
 # vc off
 @app.on_message(filters.video_chat_ended)
 async def brah2(_, msg):
-    await msg.reply("**😕ᴠɪᴅᴇᴏ ᴄʜᴀᴛ ᴇɴᴅᴇᴅ💔**")
+    # Easy Language Style
+    await msg.reply("**💔 The call has ended. I miss your voice already! 🕰️**")
 
 
 # invite members on vc
 @app.on_message(filters.video_chat_members_invited)
 async def brah3(app: app, message: Message):
-    text = f"➻ {message.from_user.mention}\n\n**๏ ɪɴᴠɪᴛɪɴɢ ɪɴ ᴠᴄ ᴛᴏ :**\n\n**➻ **"
+    # Easy Language Style Text
+    text = f"✍️ **{message.from_user.mention} has invited others to the call!**\n\n**Joining the conversation:**\n\n**🌸 **"
     x = 0
     for user in message.video_chat_members_invited.users:
         try:
@@ -43,13 +49,14 @@ async def brah3(app: app, message: Message):
     try:
         invite_link = await app.export_chat_invite_link(message.chat.id)
         add_link = f"https://t.me/{app.username}?startgroup=true"
-        reply_text = f"{text} 🤭🤭"
+        # Easy Language Style Reply Text
+        reply_text = f"{text} **Please come and chat with us! 🥂**"
 
         await message.reply(
             reply_text,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton(text="๏ ᴊᴏɪɴ ᴠᴄ ๏", url=add_link)],
+                    [InlineKeyboardButton(text="💌 Join Our Chat 💌", url=add_link)], # Easy Language Button
                 ]
             ),
         )
@@ -62,18 +69,32 @@ async def brah3(app: app, message: Message):
 
 @app.on_message(filters.command("math", prefixes="/"))
 def calculate_math(client, message):
+    # Simple check for input
+    if len(message.text.split("/math ", 1)) < 2:
+        return message.reply("Please give me something to calculate! Example: /math 5*9")
+    
     expression = message.text.split("/math ", 1)[1]
     try:
+        # Evaluate the math expression
         result = eval(expression)
-        response = f"ᴛʜᴇ ʀᴇsᴜʟᴛ ɪs : {result}"
+        # Easy Language Style Success Message
+        response = f"🧮 **My calculation shows the answer is: {result}**"
     except:
-        response = "ɪɴᴠᴀʟɪᴅ ᴇxᴘʀᴇssɪᴏɴ"
+        # Easy Language Style Error Message
+        response = "😢 **Oops! I can't solve that math problem. Please check your numbers!**"
     message.reply(response)
 
 
 @app.on_message(filters.command(["spg"], ["/", "!", "."]))
 async def search(event):
-    msg = await event.respond("Searching...")
+    # Easy Language Style Initial Message
+    if len(event.text.split()) < 2:
+        return await event.respond("Please tell me what to search for! Example: /spg Violet Evergarden")
+        
+    msg = await event.respond("🔎 **I am searching for your request now...**")
+    
+    # ... (Rest of the search logic remains the same for functionality)
+    
     async with aiohttp.ClientSession() as session:
         start = 1
         async with session.get(
@@ -84,7 +105,9 @@ async def search(event):
             result = ""
 
             if not response.get("items"):
-                return await msg.edit("No results found!")
+                # Easy Language Style No Results Message
+                return await msg.edit("**Sorry, I found nothing related to your search! 😔**")
+            
             for item in response["items"]:
                 title = item["title"]
                 link = item["link"]
@@ -98,8 +121,17 @@ async def search(event):
                     # remove duplicates
                     continue
                 result += f"{title}\n{link}\n\n"
+            
+            # Easy Language Style Button
             prev_and_next_btns = [
-                Button.inline("▶️Next▶️", data=f"next {start+10} {event.text.split()[1]}")
+                InlineKeyboardButton("Next Page ❯", callback_data=f"next {start+10} {event.text.split()[1]}")
             ]
-            await msg.edit(result, link_preview=False, buttons=prev_and_next_btns)
+            
+            await msg.edit(result, link_preview=False, reply_markup=InlineKeyboardMarkup(prev_and_next_btns))
             await session.close()
+
+
+__mod__ = "COUPLES"
+__help__ = """
+**» /couples** - Find today's cutest couple in the group! 💖
+"""
