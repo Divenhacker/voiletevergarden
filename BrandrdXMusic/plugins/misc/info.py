@@ -71,21 +71,23 @@ font_path = "BrandrdXMusic/assets/hiroko.ttf"
 
 # --------------------------------------------------------------------------------- #
 
-
+# NEW INFO_TEXT with the requested stylish format
 INFO_TEXT = """**
-❅─────✧❅✦❅✧─────❅
-            ✦ ᴜsᴇʀ ɪɴғᴏ ✦
+╔══ஓ๑♡๑ஓ══╗
+     🌸 ᴜꜱᴇʀ ᴘʀᴏꜰɪʟᴇ 🌸
+╚══ஓ๑♡๑ஓ══╝
 
-➻ ᴜsᴇʀ ɪᴅ ‣ **`{}`
-**➻ ғɪʀsᴛ ɴᴀᴍᴇ ‣ **{}
-**➻ ʟᴀsᴛ ɴᴀᴍᴇ ‣ **{}
-**➻ ᴜsᴇʀɴᴀᴍᴇ ‣ **`{}`
-**➻ ᴍᴇɴᴛɪᴏɴ ‣ **{}
-**➻ ʟᴀsᴛ sᴇᴇɴ ‣ **{}
-**➻ ᴅᴄ ɪᴅ ‣ **{}
-**➻ ʙɪᴏ ‣ **`{}`
+❀ ɪᴅ ┊ **`{}`
+❀ ꜰɪʀꜱᴛ ɴᴀᴍᴇ ┊ **{}
+❀ ʟᴀꜱᴛ ɴᴀᴍᴇ ┊ **{}
+❀ ᴜꜱᴇʀɴᴀᴍᴇ ┊ **`{}`
+❀ ᴍᴇɴᴛɪᴏɴ ┊ **{}
+❀ ʟᴀꜱᴛ ꜱᴇᴇɴ ┊ **{}
+❀ ᴅᴄ ɪᴅ ┊ **{}
+❀ ʙɪᴏ ┊ **`{}`
 
-**❅─────✧❅✦❅✧─────❅**
+༺❀༻────────────༺❀༻
+*"I wonder what kind of story hides behind this name..."*
 """
 
 # --------------------------------------------------------------------------------- #
@@ -95,15 +97,15 @@ async def userstatus(user_id):
       user = await app.get_users(user_id)
       x = user.status
       if x == enums.UserStatus.RECENTLY:
-         return "Recently."
+         return "Just peeked in! 😉"
       elif x == enums.UserStatus.LAST_WEEK:
-          return "Last week."
+          return "Missed them all week... 💔"
       elif x == enums.UserStatus.LONG_AGO:
-          return "Long time ago."
+          return "It's been ages! Come back to me. 😔"
       elif x == enums.UserStatus.OFFLINE:
-          return "Offline."
+          return "Offline (Dreaming of you, maybe?)"
       elif x == enums.UserStatus.ONLINE:
-         return "Online."
+         return "Online! Ready to chat! 💖"
    except:
         return "**sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ ʜᴀᴘᴘᴇɴᴇᴅ !**"
     
@@ -211,3 +213,4 @@ async def userinfo(_, message):
                 id, first_name, last_name, username, mention, status, dc_id, bio), reply_to_message_id=message.id)
         except Exception as e:
             await message.reply_text(str(e))
+        
