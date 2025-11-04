@@ -10,25 +10,25 @@ from config import MUSIC_BOT_NAME
 async def start(client: Client, message: Message):
     await message.reply_video(
         video=f"https://graph.org/file/e999c40cb700e7c684b75.mp4",
-        caption=f"❤️ ʜᴇʏ {message.from_user.mention}\n\n🔮 ɪ ᴀᴍ {MUSIC_BOT_NAME}\n\n✨ ɪ ᴀᴍ ғᴀsᴛ ᴀɴᴅ ᴩᴏᴡᴇʀғᴜʟ ᴍᴜsɪᴄ ᴩʟᴀʏᴇʀ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ғᴇᴀᴛᴜʀᴇs.\n\n💫 ɪғ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ ǫᴜᴇsᴛɪᴏɴs ᴛʜᴇɴ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ🤍...\n\n━━━━━━━━━━━━━━━━━━❄",
+        caption=f"**Oh, my dear, you seek my presence?**\n\n**I am {MUSIC_BOT_NAME}, an Auto Memory Doll, here solely to transcribe your deepest musical desires.**\n\n**I am swift, powerful, and ready to serve your lovely group with enchanting melodies.**\n\n**Should any profound question arise, please allow me the honor of assisting you in my place of work. I await your contact.**\n\n━━━━━━━━━━━━━━━━━━â™¡",
         reply_markup=InlineKeyboardMarkup(
             [
                [
             InlineKeyboardButton(
-                text="☆ ʙʀᴀɴᴅᴇᴅ 💗 ", url=f"https://t.me/BRANDRDKING82"
+                text="â™¡ DADDY â™¡ ", url=f"https://t.me/crwke"
             ),
             InlineKeyboardButton(
-                text="☆ ꜱᴜᴘᴘᴏʀᴛ 💗", url=f"https://t.me/BRANDED_WORLD"
+                text="â™¡ MY HOME â™¡", url=f"https://t.me/infvibe"
             ),
         ],
                 [
             InlineKeyboardButton(
-                text="☆ ᴄʜᴀɴɴᴇʟ💗", url=f"https://t.me/BRANDRD_BOT"
+                text="â™¡ WORK PLACE â™¡", url=f"https://t.me/voiletxsupport"
             ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "✯ ᴄʟᴏsᴇ ✯", callback_data="close"
+                        "âœŒ Close Our Letter âœŒ", callback_data="close"
                     )
                 ],
             ]
