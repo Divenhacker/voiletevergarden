@@ -1,7 +1,7 @@
 {
-    "name": "⛦ 𝐁𝐫𝐚𝐧𝐝𝐫𝐝 𝐗 𝐌𝐮𝐬𝐢𝐜 ⛦",
+    "name": "𝑽𝒐𝒊𝒍𝒆𝒕 𝑬𝒗𝒆𝒓𝒈𝒂𝒓𝒅𝒆𝒏",
     "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
-    "logo": "https://te.legra.ph/file/62fa7c81c56c1ae31c844.jpg",
+    "logo": "http://ibb.co/6cb7bPYw",
     "keywords": [
     "python3",
     "telegram",
@@ -14,32 +14,32 @@
     "env": {
       "API_ID": {
         "description": "Get this value from https://my.telegram.org",
-        "value": "",
+        "value": "21846639",
         "required": true
       },
       "API_HASH": {
         "description": "Get this value from https://my.telegram.org",
-        "value": "",
+        "value": "2cebc99bd8378b5237b31ea8e7496d79",
         "required": true
       },
       "BOT_TOKEN": {
         "description": "A Bot's token from Botfather",
-        "value": "",
+        "value": "8519095394:AAE-i4QvMSERhta2mCU_l851EKmHjoLejsw",
         "required": true
       },
       "MONGO_DB_URI": {
         "description": "Get a mongodb url from https://cloud.mongodb.com.",
-        "value": "",
+        "value": "mongodb+srv://kiritodeveloperkai_db_user:<db_password>@cluster0.2j2bi0o.mongodb.net/?appName=Cluster0",
         "required": true
       },
       "OWNER_ID": {
         "description": "The user id of user whom you would like to add as OWNER.",
-        "value": "",
+        "value": "-1003208855424",
         "required": true
       },
       "STRING_SESSION": {
         "description": "A Pyrogram v2 String Session from @BRANDEDSTRINGSESSION_BOT on Telegram.",
-        "value": "",
+        "value": "BQFNWm8AUjQig9RXtlo-DiR9dIyv5HmWI8DgkJxYnaOBov0t1np9UBa6lRZVwqV9J1_MHnNsGIjqQYwRaewhWY3QvTYi14lFeWISC0e0CegTippnetmE44olgy0IbREyM7DZ6FvTlGXnL-J3Eyv0Q7UHzh3BZ68k2hxEdtEztrBeyAAEP61XD3mLCjlB0VIDb5IgjxARSTMRgVISOCPvm1mML7cJDzTxG74XM5Qh8yoeC_Ls4txEISNagFVEp1w_Ime2OaIq7nlGSDnjIm1MiimtLJRtePNZnVoCVHwPGMY_DUpTfEoYCiOuTCv5H42bzPofBci5RtuV9Uw1C8fPhd-GANxQ6AAAAABsFeBfAA"
         "required": true
       },
       "HEROKU_API_KEY": {
@@ -54,7 +54,7 @@
       },
       "LOGGER_ID": {
         "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Don't Add Channel's ID.",
-        "value": "",
+        "value": "-1003119971734",
         "required": true
       }
     },
